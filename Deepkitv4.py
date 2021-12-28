@@ -1,28 +1,35 @@
  ## install tensorflow to anaconda
 print("Are you running anacocnda? Y/N")
-answer = input()
-if answer == "Y":
-    print("Installing Tensorflow")
-    import os
-    os.system("conda install tensorflow")
-    print("Tensorflow installed")
-    ## installl miniforge through pip3 
-    print("Installing miniforge")
-    import os
-import sys 
-## import brew to mac terminal
-if sys.platform == "darwin":
-    ruby = os.environ.get('RUBY')
-    ##i stall brew through ruby
-    os.system("ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"")
-# install miniforge with ruby
-    os.system("ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go)\"")
+print("Scanning system for anaconda...")
+import os
+import sys
+import subprocess
+import time
+import shutil
+import requests
+import json
+import re
+import random
+import string
+import numpy as np
+## Design A UX to check if the user wants to install miniforge, anaconda,transformers, gradio and huggingface
+def install_miniforge():
+    print("Do you want to install miniforge? Y/N")
+    miniforge = input()
+    if miniforge == "Y":
+        print("installing miniforge")
+        subprocess.call(["curl", "-L","", "-o", "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh"])
+        subprocess.call(["bash", "Miniforge3-MacOSX-arm64.sh"])
+        subprocess.call(["curl", "-L","", "-o", ""], shell=True)
+        subprocess.call(["bash", "Miniforge3-MacOSX-arm64.sh"])
+        ## install Miniforge3-MacOSX-arm64.sh""
+        ## prompt the ai to install brew and miniforge using the terminal
+        ## install miniforge
+        os.call = ("brew", "install", "miniforge")
+        print("Done.")
+    else:
+        print("You chose not to install miniforge")
+        print("Continuing...")
+        os.sys.exit()
 
-    os.system("brew install miniforge")
-    os.system("miniforge install tensorflow")
-    os.system("miniforge install opencv")
-else:
-    print("Please install Tensorflow to anaconda")
-    print("Exiting")
-    exit()
-    
+        print(install_miniforge())
